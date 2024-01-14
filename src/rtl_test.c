@@ -465,7 +465,9 @@ int main(int argc, char **argv)
 
 exit:
 	rtlsdr_close(dev);
-	free (buffer);
+	if (!list_only){
+		free (buffer);
 
-	return r >= 0 ? r : -r;
+		return r >= 0 ? r : -r;
+	}
 }
